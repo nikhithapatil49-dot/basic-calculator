@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center;margin-top:50px">
+<h2>Simple Calculator</h2>
+<input id="d" style="width:200px;height:40px;font-size:20px;text-align:right"><br><br>
+<button onclick="d.value+='1'">1</button>
+<button onclick="d.value+='2'">2</button>
+<button onclick="d.value+='3'">3</button>
+<button onclick="d.value+='+'">+</button><br>
+<button onclick="d.value+='4'">4</button>
+<button onclick="d.value+='5'">5</button>
+<button onclick="d.value+='6'">6</button>
+<button onclick="d.value+='-'">-</button><br>
+<button onclick="d.value+='7'">7</button>
+<button onclick="d.value+='8'">8</button>
+<button onclick="d.value+='9'">9</button>
+<button onclick="d.value+='*'">*</button><br>
+<button onclick="d.value+='0'">0</button>
+<button onclick="d.value+='.'">.</button>
+<button onclick="calc()">=</button>
+<button onclick="d.value+='/'">/</button><br><br>
+<button onclick="d.value=''" style="background:red;color:white">C Clear</button>
+
+<script>
+let d=document.getElementById('d');
+function calc(){
+ let v=d.value;
+ let a=v.split(/([+\-*/])/);
+ if(a.length<3) return;
+ let n1=parseFloat(a[0]), op=a[1], n2=parseFloat(a[2]);
+ if(op=='/' && n2==0){d.value='Cannot divide by 0'; return}
+ if(op=='+') d.value=n1+n2;
+ if(op=='-') d.value=n1-n2;
+ if(op=='*') d.value=n1*n2;
+ if(op=='/') d.value=n1/n2;
+}
+</script>
+</body>
+</html>
